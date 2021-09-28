@@ -1,0 +1,487 @@
+/* index.html style sheet */
+
+:root {
+    --cutom-opacity: 0.9;
+    --bacground: rgb(5, 4, 4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: var(--bacground);
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++++++++++ LOGO ++++++++++++++++++++++++
+ *+++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+.logo {
+    opacity: var(--cutom-opacity);
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    background-image: url(../assets/img/logo2.png);
+    width: 210px;
+    height: 50px;
+    background-size: cover;
+}
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++++++++ TOPNAV +++++++++++++++++++++++++
+ *++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+nav {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 15px;
+    border-top-left-radius: 20rem;
+    padding-top: 5px;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+    opacity: var(--cutom-opacity);
+}
+.nav-links a:hover{
+    opacity: 0.6;
+}
+.nav-links li {
+    list-style: none;
+}
+
+.burger div {
+    display: none;
+    width: 25px;
+    height: 4px;
+    background-color: aqua;
+    margin: 2.5px;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++
+/* animating and toggling second burger */
+.burger-b {
+    cursor: pointer;
+    display: block;
+}
+
+.burger-b .linea{
+    position: absolute;
+    top: 20px;
+    right: 150px;
+    background-color: black;
+    width: 30px;
+    height: 4px;
+    margin: 2.2px;
+    border-radius: 8px;
+}
+.burger-b .lineb{
+    position: absolute;
+    top: 28px;
+    right: 150px;
+    background-color: black;
+    width: 30px;
+    height: 4px;
+    margin: 2.2px;
+    border-radius: 8px;
+}
+.burger-b .linec{
+    position: absolute;
+    top: 37px;
+    right: 150px;
+    background-color: black;
+    width: 30px;
+    height: 4px;
+    margin: 2.2px;
+    border-radius: 8px;
+}
+/*++++++++++++++++++++++++++++++++++++++++*/
+
+@media screen and (max-width:1024px) {
+    .nav-links {
+        width: 60%;
+    }
+    .burger-b .linea,
+    .burger-b .lineb,
+    .burger-b .linec{
+        right: 10px;
+    }
+
+}
+
+/* change the position of the links on a small screen */
+@media screen and (max-width:700px) {
+    body {
+        overflow-x: hidden ;
+    }
+    .burger-b div{
+        display: none;
+        cursor: not-allowed;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 10vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .burger div{
+        display: block;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+    }
+    .nav-links a {
+        color: aqua;
+        background-color: black;
+        padding: 10px;
+        border-radius: 5px;
+        width: 20px;
+    }
+
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+/* animating the toggle button */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+
+}
+.toggle .line2 {
+    opacity: 0;
+
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++
+ *++++++++++++++++ End of TopNav +++++++++++++++++++
+ *++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+
+
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++++++++ MAIN BODY +++++++++++++++++++++++++
+ *+++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+ main {
+     position: absolute;
+     top: 8vh;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     width: 100%;
+     height: 100%;
+     background: transparent;
+     background-size: contain;
+     justify-content: center;
+     place-items: center;
+     place-content: center;
+     z-index: -1;
+     overflow: hidden;
+ }
+
+
+/* change display to block on small creens */
+@media (max-width: 600px) {
+    main {
+        display: block;
+        height: 200vh;
+    }
+    .card,
+    .card-b,
+    .card-c {
+        background-size: cover;
+        margin: 5rem;
+    }
+}
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++ CARD STYLING AND ANIMATIN +++++++++++++++++++++++++++++++++++
+ *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+/* style the entire card */
+.card {
+    opacity: var(--cutom-opacity);
+    color: grey;
+    flex: 1;
+    border-radius: 1rem;
+    background-image: url(../assets/img/ai_10.jfif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
+    padding:  10rem 0 0;
+    max-height: 35ch;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+
+.card-b {
+    opacity: var(--cutom-opacity);
+    color: grey;
+    border-radius: 1rem;
+    flex: 1;
+    background-image: url(../assets/img/tech_2.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
+    padding:  10rem 0 0;
+    max-height: 35ch;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+
+.card-c {
+    opacity: var(--cutom-opacity);
+    color: grey;
+    flex: 1;
+    border-radius: 1rem;
+    background-image: url(../assets/img/web_13.jfif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
+    padding:  10rem 0 0;
+    max-height: 35ch;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+
+/* style card content | push down then reveal on hover */
+.card-content {
+    --padding: 1.5em;
+    padding: 1.5em;
+    background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% / 1)
+    )
+}
+
+@media (hover) {
+    /* zoom in on hover */
+    .card:hover,
+    .card:focus-within,
+    .card-b:hover,
+    .card-b:focus-within,
+    .card-c:hover,
+    .card-c:focus-within {
+        transform: scale(1.15);
+    }
+
+    /* if mouse hovers or the card gets in focus */
+    .card:hover .card-content,
+    .card:focus-within .card-content,
+    .card-b:hover .card-content,
+    .card-b:focus-within .card-content,
+    .card-c:hover .card-content,
+    .card-c:focus-within .card-content {
+        transform: translateY(20%);
+        transition-delay: 500ms;
+    }
+    /* on mouse activity detection, bring up card conted */
+    .card:hover .card-content,
+    .card:focus-within .card-content,
+    .card-b:hover .card-content,
+    .card-b:focus-within .card-content,
+    .card-c:hover .card-content,
+    .card-c:focus-within .card-content {
+        transform: translateY(-30%);
+    }
+
+    /* on mouse detection show the content by increasing opacity */
+    .card:hover .card-content > *:not(.card-title),
+    .card:focus-within .card-content > *:not(.card-title),
+    .card-b:hover .card-content > *:not(.card-title),
+    .card-b:focus-within .card-content > *:not(.card-title),
+    .card-c:hover .card-content > *:not(.card-title),
+    .card-c:focus-within .card-content > *:not(.card-title) {
+        opacity: 1;
+        transition-delay: 500ms;
+    }
+    .card:hover .card-title::after,
+    .card:focus-within .card-title::after,
+    .card-b:hover .card-title::after,
+    .card-b:focus-within .card-title::after,
+    .card-c:hover .card-title::after,
+    .card-c:focus-within .card-title::after {
+        transform: scaleX(1);
+    }
+    /* change card button color on hover or focus*/
+    .card-button:hover,
+    .card-button:focus-within {
+        background-color: grey;
+    }
+    /* push down then reveal on hover */
+    .card-content {
+        transform: translateY(15%);
+        transition: transform 500ms ease;
+    }
+    .card-title::after {
+        transform: scaleX(0);
+    }
+
+}
+
+/* if someone does not prefer animaion in their brower */
+@media (prefers-reduced-motion: reduce)
+{
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition-delay: 0.5ms;
+    }
+}
+
+
+/* eliminate the tab problem */
+.card:focus-within .card-content,
+.card-b:focus-within .card-content,
+.card-c:focus-within .card-content {
+    transition-duration: 0ms;
+}
+
+/* add opacity animation except for the title | make them invisible */
+.card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 1000ms linear;
+}
+
+.card-title {
+    color: whitesmoke;
+    position: relative;
+    width: max-content;
+    padding: 4px;
+
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+    height: 4px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: aqua;
+    transform-origin: left;
+    transition: transform 1000ms ease;
+}
+
+/* set color for the card body */
+.card-body {
+    color: whitesmoke;
+}
+
+/* style the card button */
+.card-button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+    padding:  0.5em 1.25em;
+    margin-top: 1rem;
+    border-radius: 5px;
+    transition: transform 1ms ease;
+
+
+}
+
+
+/* change card button color on hover or focus*/
+.card-button:hover,
+.card-button:focus-within {
+    background-color: darkcyan;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++++++++++++ End of Card styling ++++++++++++++++++++++
+ *++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+
+ 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ *+++++++++ ANIMATION START ++++++++++++++++++++++++++++++++++++++
+ *++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
+
+#canvas1 {
+    position: absolute;
+    top: 100%; left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    opacity: 0.5;
+}
