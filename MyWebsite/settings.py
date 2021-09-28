@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_cleanup',
-    'django_heroku',
     'storages',
 ]
 
@@ -174,5 +174,4 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Configure Django App for Heroku.
-import django_heroku
 django_heroku.settings(locals())
