@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'error' %}">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <p class="text-white-75 mb-5">At Roll Industries we understand how important your business is to you. 
                         So focus on the important stuff, let us make sure you run smoothly.</p>
                         <a class="btn btn-primary btn-xl" href="#services">Find Out More</a>
-                        <a style="margin: 5px; background: aqua;" class="btn btn-primary btn-xl" href="{% url 'legacy' %}">Oringin Mode</a>
+                        <a style="margin: 5px; background: aqua;" class="btn btn-primary btn-xl" href="{% url 'origin' %}">Oringin Mode</a>
                     </div>
                 </div>
             </div>
@@ -157,8 +157,8 @@
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Login or Sign-up</h2>
-                <a class="btn btn-light btn-xl" href="{% url 'register' %}">Sign-Up</a>
-                <a class="btn btn-dark btn-xl" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-light btn-xl" href="{% url 'error' %}">Sign-Up</a>
+                <a class="btn btn-dark btn-xl" href="{% url 'error' %}">Login</a>
             </div>
         </section>
          <!-- About-->
@@ -231,10 +231,5 @@
         <script src="{% static 'rollindustries/js/simpleLightbox.min.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'rollindustries/js/scripts.js' %}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

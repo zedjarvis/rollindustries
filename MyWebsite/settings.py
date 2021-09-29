@@ -24,14 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cgc0bb%=4-(nn@e*3w!%cg6nwcc-jx20(ho9u8%a*r*xzi3+)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["rollindustries.herokuapp.com","127.0.0.1"]
+ALLOWED_HOSTS = ["rollindustries.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rollindustries.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,12 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rollindustries',
-    'accounts',
-    'crispy_forms',
-    'rest_framework',
-    'corsheaders',
-    'django_cleanup',
-    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -87,7 +82,7 @@ WSGI_APPLICATION = 'MyWebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rollindustries',
+        'NAME': 'future',
         'USER': 'postgres',
         'PASSWORD': 'cedo1234',
         'HOST': '127.0.0.1',
@@ -136,13 +131,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-LOGIN_REDIRECT_URL = 'login'
-LOGOUT_REDIRECT_URL = 'logout'
-PERMISSION_REDIRECT_URL = 'profile'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -159,18 +147,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sidhartthesecond2@gmail.com'
 EMAIL_HOST_PASSWORD = 'Randomthread1'
-
-
-# S3 BUCKETS CONFIG
-AWS_ACCESS_KEY_ID = 'AKIA5JOITXTWBLH6AJVW'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'rollindustries-bucket'
-AWS_QUERYSTRING_AUTH = False
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Configure Django App for Heroku.

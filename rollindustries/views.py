@@ -1,33 +1,40 @@
-from django.shortcuts import redirect, render
-from django.contrib import messages
-
-
+from django.shortcuts import render
 from .models import Contact
 
 
-# Create your views here.
-
-
+############################################################
+# Main Website Page
+############################################################
 def homePage(request):
     if request.method == "POST":
         # contact model instance
         contact = Contact()
 
         # get post values from contact
-        name = request.POST.get("name")
-        email = request.POST.get("email")
+        fromName = request.POST.get("name")
+        fromEmail = request.POST.get("email")
         phone = request.POST.get("phone")
-        subject = request.POST.get("subject")
+        emailMessage = request.POST.get("subject")
 
         # store the value in the database model
-        contact.full_name = name
-        contact.email = email
+        contact.full_name = fromName
+        contact.email = fromEmail
         contact.phone = phone
-        contact.subject = subject
+        contact.subject = emailMessage
         contact.save()
 
     return render(request, 'rollindustries/index.html')
 
 
-def legacyMode(request):
+#############################################################
+# Oringin Mode View
+#############################################################
+def originMode(request):
     return render(request, 'rollindustries/origin.html')
+
+
+##############################################################
+# Cutom error Page For uniplimented pages
+##############################################################
+def errorPage(request):
+    return render(request, 'rollindustries/error-404.html')
