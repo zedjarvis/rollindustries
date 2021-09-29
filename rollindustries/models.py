@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Contact(models.Model):
     full_name = models.CharField(max_length=200)
     email = models.EmailField()
-    phone = models.DecimalField(max_digits=11, decimal_places=0)
+    phone = models.CharField(max_length=50)
     subject = models.TextField()
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)
