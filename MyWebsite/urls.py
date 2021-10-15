@@ -20,6 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+# custom error handling pages
+
+handler400 = 'rollindustries.views.handler400'
+handler403 = 'rollindustries.views.handler403'
+handler404 = 'rollindustries.views.handler404'
+handler500 = 'rollindustries.views.handler500'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rollindustries.urls')),

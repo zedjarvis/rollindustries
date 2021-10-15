@@ -15,20 +15,9 @@
         <link href="{% static 'rollindustries/css/styles.css' %}?v=2" rel="stylesheet" />
         <link href="{% static 'rollindustries/css/boxicons.min.css' %}" rel="stylesheet" />
     </head>
-    <body id="page-top">
+    <body id="page-top" style="height: 100vh; width: 100%;">
 
-     <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            <!-- 404 Error Text -->
-            <div class="text-center">
-                <div class="error mx-auto" data-text="404">404</div>
-                <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                <a style="color: #f4623a;" href="{% url 'homePage' %}">&larr; go Back Home</a>
-            </div>
-
-        </div>
+     {% block content %} {% endblock %}
 
         <!-- Footer-->
         <footer class="bg-light py-5">
@@ -36,8 +25,6 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="{% static 'rollindustries/js/bootstrap.bundle.min.js' %}"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="{% static 'rollindustries/js/simpleLightbox.min.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'rollindustries/js/scripts.js' %}"></script>
     </body>

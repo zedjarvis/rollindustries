@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cgc0bb%=4-(nn@e*3w!%cg6nwcc-jx20(ho9u8%a*r*xzi3+)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["rollindustries.herokuapp.com", "127.0.0.1"]
 
@@ -174,12 +174,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # SMTP Configuration
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'sidhartthesecond2@gmail.com'
+EMAIL_HOST_USER = 'rollindustries2067@gmail.com'
 EMAIL_HOST_PASSWORD = 'Randomthread1'
 
 
