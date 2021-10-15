@@ -37,12 +37,7 @@ def homePage(request):
             [toEmail],
         )
         email.fail_silently = False
-        try:
-            email.send()
-            messages.success("Message Seccessfully Sent!")
-        except (Exception):
-            messages.error('Unable to Send confirmation email!!')
-            pass
+        email.send()
 
     return render(request, 'rollindustries/index.html')
 
