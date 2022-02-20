@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from email.policy import default
 import os
 from pathlib import Path
 import django_heroku
+from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cgc0bb%=4-(nn@e*3w!%cg6nwcc-jx20(ho9u8%a*r*xzi3+)y'
+SECRET_KEY = config("SECRET_KEY", default='django-insecure-cgc0bb%=4-(nn@e*3w!%cg6nwcc-jx20(ho9u8%a*r*xzi3+)y')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -114,9 +116,9 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'future',
+        'NAME': 'rollindustries',
         'USER': 'postgres',
-        'PASSWORD': 'cedo1234',
+        'PASSWORD': config("POSTGRES_PASSWORD", default=""),
         'HOST': '127.0.0.1',
         'PORT': '5277'
     }
@@ -179,7 +181,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'rollindustries2067@gmail.com'
-EMAIL_HOST_PASSWORD = 'Randomthread1'
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASS", default="")
 
 
 DEBUG_PROPAGATE_EXCEPTIONS = True

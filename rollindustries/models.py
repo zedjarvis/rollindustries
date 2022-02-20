@@ -5,10 +5,10 @@ from django.db import models
 
 
 class Contact(models.Model):
-    full_name = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=255)
     email = models.EmailField()
-    phone = models.CharField(max_length=50)
-    subject = models.TextField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)
 

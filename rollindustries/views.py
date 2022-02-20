@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
